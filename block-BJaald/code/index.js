@@ -60,10 +60,11 @@ class Queue {
     let index = Object.keys(this.storage)[0];
     let elm = this.storage[index];
     delete this.storage[index];
+    let obj = {};
     for(let i = 0; i < this.length; i++) {
-      this.storage[i] = this.storage[i+1];
+      obj[i] = this.storage[i+1];
     }
-    delete this.storage[this.length - 1];
+    this.storage = obj;
     return elm;
   }
 
